@@ -44,12 +44,19 @@ public class Calculator {
      * Werte sowie der aktuelle Operationsmodus zurückgesetzt, so dass der Rechner wieder
      * im Ursprungszustand ist.
      */
-    public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
-    }
 
+    public void pressClearKey() {
+        boolean clearKeyPressed = false;
+        if (!clearKeyPressed) {
+            screen = "0";
+            clearKeyPressed = true;
+        } else {
+            screen = "0";
+            latestOperation = "";
+            latestValue = 0.0;
+            clearKeyPressed = false;
+        }
+    }
     /**
      * Empfängt den Wert einer gedrückten binären Operationstaste, also eine der vier Operationen
      * Addition, Substraktion, Division, oder Multiplikation, welche zwei Operanden benötigen.
